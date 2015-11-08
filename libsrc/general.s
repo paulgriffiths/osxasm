@@ -48,10 +48,10 @@ _pgrandom:
         mov    %rsp, %rbp
         sub    $16, %rsp
 
-        .set .range, -16                #  Local - argument
-        .set .t, -8                     #  Local - temporary
+        .set   range, -16               #  Local - argument
+        .set   t, -8                    #  Local - temporary
 
-        mov    %rdi, .range(%rbp)       #  Store argument
+        mov    %rdi, range(%rbp)        #  Store argument
 
         movl   rand_x(%rip), %eax       #  Get x value
         mov    %eax, %ecx               #  Copy x value
@@ -60,7 +60,7 @@ _pgrandom:
         mov    %eax, %ecx               #  Copy t value
         shr    $8, %ecx                 #  t >> 8
         xor    %ecx, %eax               #  t = t ^ (t >> 8)
-        mov    %eax, .t(%rbp)           #  Store t value
+        mov    %eax, t(%rbp)            #  Store t value
 
         mov    rand_y(%rip), %eax       #  Copy y value...
         mov    %eax, rand_x(%rip)       #  ...to x
@@ -72,12 +72,12 @@ _pgrandom:
         mov    %eax, %ecx               #  Copy w value
         shr    $19, %ecx                #  w >> 19
         xor    %ecx, %eax               #  w = w ^ (w >> 19)
-        mov    .t(%rbp), %ecx           #  Retrieve t value
+        mov    t(%rbp), %ecx            #  Retrieve t value
         xor    %ecx, %eax               #  w = w ^ t
         mov    %eax, rand_w(%rip)       #  Store w value
 
         xor    %edx, %edx               #  Zero high order bits for idiv
-        idivq  .range(%rbp)             #  Divide by range
+        idivq  range(%rbp)              #  Divide by range
 
         mov    %edx, %eax               #  Return remainder
         leave  

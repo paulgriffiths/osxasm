@@ -92,14 +92,14 @@ _char_is_alnum:
         mov     %rsp, %rbp
         sub     $16, %rsp
 
-        .set     .n, -8                 #  Local - character to test
+        .set     n, -8                  #  Local - character to test
 
-        mov     %rdi, .n(%rbp)          #  Store character
+        mov     %rdi, n(%rbp)           #  Store character
 
         call    _char_is_alpha          #  Check if alphabetic...
         mov     %rax, %rdx              #  ...and store result
 
-        mov     .n(%rbp), %rdi          #  Pass character to test
+        mov     n(%rbp), %rdi           #  Pass character to test
         call    _char_is_digit          #  Check if digit
 
         or      %rdx, %rax              #  True if either test was true

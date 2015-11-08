@@ -26,7 +26,7 @@ _put_string:
         movq    %rsp, %rbp
         subq    $16, %rsp
 
-        .set str, -8                        #  Address of string
+        .set    str, -8                     #  Address of string
 
         mov     %rdi, str(%rbp)             #  Save address of string
         call    _string_length              #  Calculate string length
