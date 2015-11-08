@@ -6,8 +6,8 @@ LOCAL_OBJ  := $(subst .s,.o,$(LOCAL_SRC))
 #$(BINDIR)/testatoi: $(LOCAL_DIR)/testatoi.o $(LIBRARIES)
 #	$(LD) -o $@ $^
 
-#$(BINDIR)/primes: $(LOCAL_DIR)/primes.o $(LIBRARIES)
-#	$(LD) -o $@ $^
+$(BINDIR)/primes: $(LOCAL_DIR)/primes.o $(LIBRARIES)
+	$(LD) -o $@ $^ $(LDFLAGS)
 
 $(BINDIR)/guesser: $(LOCAL_DIR)/guesser.o $(LIBRARIES)
 	$(LD) -o $@ $^ $(LDFLAGS)

@@ -8,7 +8,7 @@ OBJECTS	    :=
 PROGRAMS    :=
 
 AS          := as
-ASFLAGS	    := -arch x86_64 -I$(INCLDIR)
+ASFLAGS	    := -g -arch x86_64 -I$(INCLDIR)
 CC          := cc
 CFLAGS      := -std=c99 -pedantic -Wall -Wextra -I$(INCLDIR)
 RM          := rm -f
