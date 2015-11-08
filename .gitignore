@@ -12,3 +12,4 @@ bin/*
 # Other scratch files
 
 *.asm
+*.swp
