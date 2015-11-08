@@ -1,7 +1,7 @@
-x86_64 Linux Assembly Sandbox
-=============================
+OS X Assembly Sandbox
+=====================
 
-A repository of x86_64 assembly experiments for Linux. For practice, and
+A repository of x86_64 assembly experiments for OS X. For practice, and
 for fun, the objective is to make all the programs self-contained, without
 using any C standard library or other functions, necessitating the explicit
 implementation of any required functionality.
@@ -13,4 +13,4 @@ assembly. Some of these functions are inefficient - others fail to implement
 even the most basic of error checking and input validation. Use at your
 own risk, and do not treat this as quality code.
 
-Run `make` to make executable files. The Yasm assembler is required.
+Run `make` to make executable files. Xcode command line tools required.
