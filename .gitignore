@@ -1,0 +1,14 @@
+# Executables
+
+bin/*
+!bin/README.md
+
+# Object and library files
+
+*.o
+*.a
+*.so
+
+# Other scratch files
+
+*.asm
