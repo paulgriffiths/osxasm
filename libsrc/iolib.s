@@ -173,7 +173,7 @@ _put_int:
         mov     %rsp, %rbp
         sub     $32, %rsp               #  Big enough for 64 bit int
 
-        .set    str, 32                 #  Local - string buffer
+        .set    str, -32                #  Local - string buffer
 
         lea     str(%rbp), %rsi         #  Pass buffer (integer already in
         call    _int_to_string          #  rdi) and convert to string
