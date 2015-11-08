@@ -4,8 +4,8 @@
 
 .include        "ascii.inc"
 
-.global  _string_length, _int_to_string, _string_to_int, _string_rev
-.extern  _char_is_digit
+.globl _string_length, _int_to_string, _string_to_int, _string_rev
+.extern _char_is_digit
 
 .text
 
@@ -47,7 +47,7 @@ _string_to_int:
         xor     %r13, %r13              #  Store running total
         
 0:
-        movzbq    (%r12), %r14          #  Extract current character
+        movzbq  (%r12), %r14            #  Extract current character
         mov     %r14, %rdi              #  Pass current character
         call    _char_is_digit          #  Call digit test function
         cmp     $1, %rax                #  Test if character is a digit...
@@ -78,11 +78,11 @@ _string_rev:
         mov     %rsp, %rbp
         sub     $16, %rsp 
 
-        .set .str, -8                   #  Local - address of string
+        .set    str, -8                 #  Local - address of string
 
-        mov     %rdi, .str(%rbp)        #  Save address of string
+        mov     %rdi, str(%rbp)         #  Save address of string
         call    _string_length          #  Get length of string
-        mov     .str(%rbp), %rdi        #  Restore address of string
+        mov     str(%rbp), %rdi         #  Restore address of string
         mov     %rax, %rdx              #  Set back counter to string...
         dec     %rdx                    #  ...length minus 1
         xor     %rcx, %rcx              #  Set front counter to zero
